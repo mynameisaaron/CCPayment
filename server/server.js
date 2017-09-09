@@ -11,6 +11,7 @@ app.post('/order', (req,res)=>{
    
     var order = new CreditCard(req.body);
 
+   
     order.save()
     .then(doc=>{res.status(201).send(doc)}, e=>{res.status(400).send(e)})
     
@@ -18,6 +19,18 @@ app.post('/order', (req,res)=>{
 
     
 
+});
+
+
+app.get('/order', (req,res)=>{
+    
+
+    CreditCard.find({})
+    .then(allOrders => {
+        res.status(200).send(allOrders);
+    },
+    e => {res.status(400).send(e)}
+);
 });
 
 
