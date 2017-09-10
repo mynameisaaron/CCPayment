@@ -33,6 +33,6 @@ app.get('/order', (req,res)=>{
 );
 });
 
-
-var PortNumber = 3000;
+// process.env.PORT property will be available if on the Heroku environment
+var PortNumber = process.env.PORT || 3000;
 app.listen(PortNumber,()=>{console.log(`Listening on Port ${PortNumber}`)});
